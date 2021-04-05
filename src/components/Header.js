@@ -20,7 +20,11 @@ export default function Header({ title }) {
           </Link>
           <p className="header-slogan">An example made by Create-React-App.</p>
         </div>
-        <CartSummary/>
+        <CartSummary>
+          <Link to="/shoppingcart">
+            <h1 className="header-title">{title}</h1>
+          </Link>
+        </CartSummary>
       </div>
 
       <hr className="hr-header-line" />

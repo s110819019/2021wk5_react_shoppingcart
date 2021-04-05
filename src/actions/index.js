@@ -3,7 +3,10 @@ import {
   SET_NAVBAR_ACTIVEITEM,
   ADD_CART_ITEM,
   REMOVE_CART_ITEM,
+  SET_PRODUCT_DETAIL,
 } from "../utils/constants";
+
+import products from "../json/products.json";
 
 export const cartItemAdd = (dispatch, product, qty) => {
   const item = {
@@ -39,4 +42,20 @@ export const activeNavItemSet = (dispatch, activeNavItem) => {
     type: SET_NAVBAR_ACTIVEITEM,
     payload: activeNavItem,
   });
+};
+export const setProductDetail = (dispatch, productId, qty) => {
+  const product = products.find(
+    x => x.id === productId
+  );
+  
+  if(qty === 0 && product.countInStock > 0)
+      qty = 1;
+
+  dispatch({
+    type: SET_PRODUCT_DETAIL,
+    payload: {
+      product,
+      qty,
+    }
+  })
 };

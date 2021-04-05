@@ -17,16 +17,6 @@ export default function CartSummary() {
 
   return (
     <>
-      {/* <nav onClick={toggleModal} className="header-cart-summary" >
-        <Badge count={count} size={"small"} style={{ color: 'white', backgroundColor: '#6366F2' }}>
-          <CartIcon size={32} />
-        </Badge>
-        <p className="cart-summary-text"> Shopping bag </p>
-      </nav> */}
-      {/* <CartModal
-        isModalVisible={isModalVisible}
-        toggleModal={toggleModal}
-      /> */}
       <Link to="/shoppingcart" className="header-cart-summary">
         <Badge count={count} size={"small"} style={{ color: 'white', backgroundColor: '#6366F2' }}>
           <CartIcon size={32} />

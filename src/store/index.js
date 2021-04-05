@@ -6,6 +6,7 @@ import {
   SET_NAVBAR_ACTIVEITEM,
   ADD_CART_ITEM,
   REMOVE_CART_ITEM,
+  SET_PRODUCT_DETAIL,
 } from "../utils/constants"
 
 export const StoreContext = createContext();
@@ -15,14 +16,18 @@ let cartItems = localStorage.getItem("cartItems")
 
 const initialState = {
    page: {
-      title: "NORDIC NEST Shopping Cart",
-      products,
+     title: "NORDIC NEST Shopping Cart",
+     products,
    },
    navBar: {
-      activeItem: "/",
+     activeItem: "/",
    },
    cartItems,
-};
+   productDetail: {
+     product: {},
+     qty: 1,
+   },
+ };
 
 function reducer(state, action) {
    switch (action.type) {
@@ -52,6 +57,8 @@ function reducer(state, action) {
      case REMOVE_CART_ITEM:
         cartItems = state.cartItems.filter((x) => x.id !== action.payload);
         return { ...state, cartItems };
+     case SET_PRODUCT_DETAIL:
+        return { ...state, productDetail: action.payload };   
      default:
        return state;
    }
